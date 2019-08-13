@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Update Blog Post</h1>
+    {{#posts}}
+        <form action="/update-post" method="POST">
+            <input type="text" name="title" placeholder="{{title}}" />
+            <input type="hidden" name="postid" value="{{postid}}" />
+            <button>Update</button>
+            <section class="row">
+                <textarea class="col-md-6 full-height" name ="content" id="pad"> {{content}} </textarea>
+                <div class="col-md-6 full-height" id="markdown"></div>
+            </section>
+        </form>
+    {{/posts}}
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.0.2/dist/showdown.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

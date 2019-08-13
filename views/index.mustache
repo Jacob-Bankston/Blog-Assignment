@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>List of Blog Posts</h1>
+    {{message}}
+    <form action="/add-post" method="GET">
+        <input type="submit" value="Add a Blog Post" />
+    </form>
+    {{#posts}}
+        <form action="/delete-post" method="POST">
+            <input type="submit" value="Delete this Blog">
+            <input type="hidden" name="postid" value="{{postid}}">
+        </form>
+        <form action="/update-post/{{postid}}" method="GET">
+            <input type="submit" value="Update this Blog">
+        </form>
+        <h1>{{title}}</h1>
+        <p>{{content}}</p>
+    {{/posts}}
+</body>
+</html>
